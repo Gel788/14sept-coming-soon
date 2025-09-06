@@ -61,8 +61,15 @@ body::before {
     text-shadow: 
         0 0 10px rgba(255, 255, 255, 0.3),
         0 0 20px rgba(255, 255, 255, 0.1);
-    transform: scale(1);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Начальное состояние - скрыт */
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.main-text.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
     animation: textPulse 4s ease-in-out infinite;
 }
 

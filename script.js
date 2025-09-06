@@ -1,48 +1,81 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Страница загружена, запускаем анимацию...');
+    console.log('🎯 Страница загружена, запускаем правильную анимацию...');
     
+    const mainText = document.getElementById('main-text');
     const subtitle = document.getElementById('subtitle');
     const comingSoon = document.getElementById('coming-soon');
     
     // Проверяем элементы
-    if (!subtitle || !comingSoon) {
-        console.error('Элементы не найдены!');
+    if (!mainText || !subtitle || !comingSoon) {
+        console.error('❌ Элементы не найдены!');
         return;
     }
     
-    // Функция анимации
-    function startAnimation() {
-        console.log('Начинаем анимацию...');
+    console.log('✅ Все элементы найдены');
+    
+    // Функция правильной анимационной последовательности
+    function startCorrectAnimation() {
+        console.log('🚀 Запуск правильной последовательности...');
         
-        // Шаг 1: Показываем только "14SEPT" (уже видно)
-        console.log('Шаг 1: 14SEPT показан');
+        // Убеждаемся что все элементы скрыты в начале
+        mainText.classList.remove('show');
+        subtitle.classList.remove('show');
+        comingSoon.classList.remove('show');
         
-        // Шаг 2: Через 3 секунды показываем подзаголовок
+        // ФАЗА 1: Показываем только "14SEPT" (1-4 секунды)
         setTimeout(() => {
-            console.log('Шаг 2: Показываем подзаголовок');
-            subtitle.classList.add('show');
-        }, 3000);
+            console.log('✨ Фаза 1: Показ 14SEPT');
+            mainText.classList.add('show');
+        }, 1000);
         
-        // Шаг 3: Через 6 секунд показываем Coming Soon
+        // ФАЗА 2: Скрываем "14SEPT" и показываем только подзаголовок (4-7 секунд)
         setTimeout(() => {
-            console.log('Шаг 3: Показываем Coming Soon');
-            comingSoon.classList.add('show');
-        }, 6000);
+            console.log('🔄 Переход к фазе 2: скрываем 14SEPT');
+            mainText.classList.remove('show');
+            
+            setTimeout(() => {
+                console.log('💫 Фаза 2: показ только подзаголовка');
+                subtitle.classList.add('show');
+            }, 600); // Небольшая задержка для плавности
+        }, 4000);
+        
+        // ФАЗА 3: Показываем все вместе + Coming Soon (7+ секунд)
+        setTimeout(() => {
+            console.log('🎉 Фаза 3: показ всего вместе');
+            // Показываем 14SEPT обратно
+            mainText.classList.add('show');
+            // Подзаголовок уже показан
+            // Добавляем Coming Soon
+            setTimeout(() => {
+                comingSoon.classList.add('show');
+                console.log('🎊 Финальная фаза: все элементы показаны');
+            }, 300);
+        }, 7000);
     }
     
     // Функция перезапуска
     function restart() {
-        console.log('Перезапуск анимации...');
+        console.log('🔄 Перезапуск анимации...');
+        
+        // Скрываем все элементы
+        mainText.classList.remove('show');
         subtitle.classList.remove('show');
         comingSoon.classList.remove('show');
-        setTimeout(startAnimation, 500);
+        
+        // Перезапускаем через небольшую задержку
+        setTimeout(startCorrectAnimation, 500);
     }
     
-    // Запускаем анимацию через 1 секунду
-    setTimeout(startAnimation, 1000);
+    // Запускаем анимацию через 1 секунду после загрузки
+    setTimeout(startCorrectAnimation, 500);
     
     // Перезапуск по клику
-    document.addEventListener('click', restart);
+    document.addEventListener('click', function(e) {
+        // Проверяем, что клик был не по загрузочным точкам
+        if (!e.target.closest('.loading-dots')) {
+            restart();
+        }
+    });
     
     // Перезапуск по пробелу
     document.addEventListener('keydown', function(e) {
@@ -51,4 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
             restart();
         }
     });
+    
+    console.log('🎮 Интерактивность настроена: клик или пробел для перезапуска');
 });
