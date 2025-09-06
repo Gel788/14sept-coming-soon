@@ -1,0 +1,28 @@
+{
+  "name": "14sept-coming-soon",
+  "version": "1.0.0",
+  "description": "Beautiful Coming Soon page for 14SEPT — In the Dark, Leave a Mark hoodie brand",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000",
+    "build": "echo 'No build process needed - static files ready for deployment'",
+    "deploy": "echo 'Ready for deployment to GitHub Pages or any static hosting'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/albertgiloan/14sept-coming-soon.git"
+  },
+  "keywords": [
+    "coming-soon",
+    "14sept",
+    "hoodie",
+    "brand",
+    "animation",
+    "responsive",
+    "landing-page"
+  ],
+  "author": "Albert Giloan",
+  "license": "MIT",
+  "homepage": "https://albertgiloan.github.io/14sept-coming-soon/"
+}
