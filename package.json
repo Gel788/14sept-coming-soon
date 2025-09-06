@@ -6,8 +6,9 @@
   "scripts": {
     "start": "python3 -m http.server 8000",
     "dev": "python3 -m http.server 8000",
-    "build": "echo 'No build process needed - static files ready for deployment'",
-    "deploy": "echo 'Ready for deployment to GitHub Pages or any static hosting'"
+    "build": "mkdir -p public && cp index.html styles.css script.js public/",
+    "deploy": "npm run build && echo 'Built files are in public/ directory'",
+    "serve": "cd public && python3 -m http.server 8000"
   },
   "repository": {
     "type": "git",

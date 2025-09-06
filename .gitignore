@@ -5,6 +5,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Build output is tracked for deployment
+# public/ folder is intentionally included
+
 # Runtime data
 pids
 *.pid
