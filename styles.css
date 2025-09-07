@@ -76,7 +76,7 @@ body {
     width: 100%;
 }
 
-/* Основные тексты - стильно и просто */
+/* Основные тексты - с эффектом печатания */
 .main-text {
     font-size: clamp(3rem, 12vw, 8rem);
     font-weight: 300;
@@ -88,14 +88,31 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: all 1s ease;
+    transition: opacity 0.5s ease;
     color: #ffffff;
     line-height: 0.9;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid rgba(255, 255, 255, 0.7);
 }
 
 .main-text.show {
     opacity: 1;
     visibility: visible;
+}
+
+.main-text.typing {
+    animation: typing 2s steps(40, end), blink-caret 1s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: rgba(255, 255, 255, 0.7); }
 }
 
 .subtitle {
@@ -109,15 +126,22 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: all 1s ease;
+    transition: opacity 0.5s ease;
     color: rgba(255, 255, 255, 0.7);
     line-height: 1.2;
     text-transform: uppercase;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid rgba(255, 255, 255, 0.5);
 }
 
 .subtitle.show {
     opacity: 1;
     visibility: visible;
+}
+
+.subtitle.typing {
+    animation: typing 3s steps(50, end), blink-caret 1s step-end infinite;
 }
 
 /* Coming Soon */
@@ -181,49 +205,77 @@ body {
     }
 }
 
-/* Финальная фаза - минимально с правильной центровкой */
+/* Финальная фаза - современная и стильная */
 .content.final-phase {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3rem;
+    gap: 2rem;
     height: auto;
     text-align: center;
+    animation: finalSlideUp 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes finalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .content.final-phase .main-text {
     position: relative;
     top: auto;
     left: auto;
-    transform: none;
+    transform: translateY(20px);
     margin: 0;
     font-size: clamp(3rem, 12vw, 8rem);
-    opacity: 1;
+    opacity: 0;
     visibility: visible;
     width: auto;
+    border: none;
+    white-space: normal;
+    overflow: visible;
+    animation: fadeInUp 1s ease 0.3s forwards;
 }
 
 .content.final-phase .subtitle {
     position: relative;
     top: auto;
     left: auto;
-    transform: none;
+    transform: translateY(20px);
     margin: 0;
     font-size: clamp(1.2rem, 4vw, 2.5rem);
-    opacity: 0.7;
+    opacity: 0;
     visibility: visible;
     width: auto;
+    border: none;
+    white-space: normal;
+    overflow: visible;
+    animation: fadeInUp 1s ease 0.6s forwards;
 }
 
 .content.final-phase .coming-soon {
     position: relative;
     top: auto;
     left: auto;
-    transform: none;
+    transform: translateY(20px);
     margin: 0;
-    opacity: 1;
+    opacity: 0;
     visibility: visible;
+    animation: fadeInUp 1s ease 0.9s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Анимированный Quchi текст - АВТОР ЗАСЛУЖИВАЕТ ЛУЧШЕГО! */
