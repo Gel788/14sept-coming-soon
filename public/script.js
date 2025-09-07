@@ -87,24 +87,22 @@ document.addEventListener('DOMContentLoaded', function() {
             hoodiePath.style.animation = null;
         }
         
-        // ФАЗА 1: Печатаем "14SEPT" (1-4 секунды)
+        // ФАЗА 1: Эффективное появление "14SEPT" (1-3 секунды)
         setTimeout(() => {
-            console.log('⌨️ Фаза 1: Печатаем 14SEPT');
+            console.log('✨ Фаза 1: Эффективное появление 14SEPT');
             mainText.classList.add('show');
-            mainText.classList.add('typing');
         }, 1000);
         
-        // ФАЗА 2: Скрываем "14SEPT" и печатаем подзаголовок (3-7 секунд)
+        // ФАЗА 2: Эффективная смена на подзаголовок (2.5-5 секунд)
         setTimeout(() => {
             console.log('🌊 Переход к фазе 2: скрываем 14SEPT');
-            mainText.classList.remove('show', 'typing');
+            mainText.classList.remove('show');
             
             setTimeout(() => {
-                console.log('⌨️ Фаза 2: Печатаем подзаголовок');
+                console.log('✨ Фаза 2: Эффективное появление подзаголовка');
                 subtitle.classList.add('show');
-                subtitle.classList.add('typing');
-            }, 500);
-        }, 3000);
+            }, 400);
+        }, 2500);
         
         // ФАЗА 3: Финальная элегантная композиция (7+ секунд)
         setTimeout(() => {
@@ -114,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const content = document.querySelector('.content');
             content.classList.add('final-phase');
             
-            // Плавно скрываем подзаголовок для перехода
+            // Скрываем подзаголовок для перехода
             subtitle.classList.remove('show');
             
             // Элегантное появление финальной композиции
@@ -132,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }, 2000);
                 }, 400);
             }, 600);
-        }, 7000);
+        }, 5000);
     }
     
     // Функция элегантного перезапуска
