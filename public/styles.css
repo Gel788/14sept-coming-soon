@@ -181,7 +181,7 @@ body {
     }
 }
 
-/* Финальная фаза - минимально */
+/* Финальная фаза - минимально с правильной центровкой */
 .content.final-phase {
     display: flex;
     flex-direction: column;
@@ -189,6 +189,7 @@ body {
     justify-content: center;
     gap: 3rem;
     height: auto;
+    text-align: center;
 }
 
 .content.final-phase .main-text {
@@ -228,7 +229,7 @@ body {
 /* Анимированный Quchi текст - АВТОР ЗАСЛУЖИВАЕТ ЛУЧШЕГО! */
 .animated-quchi {
     position: relative;
-    margin-top: 4rem;
+    margin: 4rem auto 0;
     font-size: clamp(3rem, 10vw, 6rem);
     font-weight: 600;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -240,6 +241,8 @@ body {
     gap: 0.1em;
     justify-content: center;
     text-transform: uppercase;
+    text-align: center;
+    width: 100%;
 }
 
 .animated-quchi.show {
@@ -283,6 +286,9 @@ body {
     z-index: 5;
     transition: all 1s ease;
     transform: scale(0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hoodie-silhouette.show {
