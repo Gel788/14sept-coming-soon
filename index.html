@@ -4,19 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>14SEPT — In the Dark, Leave a Mark</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=13">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
+        <!-- Фоновый паттерн с силуэтами Quchi -->
+        <div class="quchi-pattern" id="quchi-pattern">
+            <div class="quchi-item">Quchi</div>
+            <div class="quchi-item">Quchi</div>
+            <div class="quchi-item">Quchi</div>
+            <div class="quchi-item">Quchi</div>
+            <div class="quchi-item">Quchi</div>
+            <div class="quchi-item">Quchi</div>
+            <div class="quchi-item">Quchi</div>
+            <div class="quchi-item">Quchi</div>
+            <div class="quchi-item">Quchi</div>
+            <div class="quchi-item">Quchi</div>
+            <div class="quchi-item">Quchi</div>
+            <div class="quchi-item">Quchi</div>
+        </div>
+        
         <div class="content">
                 <!-- Фаза 1: Только 14SEPT -->
-                <h1 class="main-text glitch" id="main-text" data-text="14SEPT">14SEPT</h1>
+                <h1 class="main-text" id="main-text" data-text="14SEPT">14SEPT</h1>
                 
                 <!-- Фаза 2: Только подзаголовок -->
-                <h2 class="subtitle glitch" id="subtitle" data-text="In the Dark, Leave a Mark">In the Dark, Leave a Mark</h2>
+                <h2 class="subtitle" id="subtitle">In the Dark, Leave a Mark</h2>
             
             <!-- Фаза 3: Coming Soon -->
             <div class="coming-soon" id="coming-soon">
@@ -27,9 +43,88 @@
                     <span></span>
                 </div>
             </div>
+            
+            <!-- Анимированный Quchi текст -->
+            <div class="animated-quchi" id="animated-quchi">
+                <span class="quchi-letter" data-letter="Q">Q</span>
+                <span class="quchi-letter" data-letter="U">U</span>
+                <span class="quchi-letter" data-letter="C">C</span>
+                <span class="quchi-letter" data-letter="H">H</span>
+                <span class="quchi-letter" data-letter="I">I</span>
+            </div>
+            
+            <!-- Силуэт худи -->
+            <div class="hoodie-silhouette" id="hoodie-silhouette">
+                <svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg">
+                    <path id="hoodie-path" d="M50 80
+                             C50 75, 55 70, 65 65
+                             C75 60, 85 58, 100 58
+                             C115 58, 125 60, 135 65
+                             C145 70, 150 75, 150 80
+                             L150 95
+                             
+                             M150 95
+                             L175 95
+                             C180 95, 185 100, 185 105
+                             L185 140
+                             C185 145, 180 150, 175 150
+                             L150 150
+                             
+                             M25 95
+                             L50 95
+                             L50 80
+                             
+                             M50 95
+                             L25 95
+                             C20 95, 15 100, 15 105
+                             L15 140
+                             C15 145, 20 150, 25 150
+                             L50 150
+                             
+                             M50 150
+                             L150 150
+                             L150 220
+                             C150 230, 145 240, 135 245
+                             L65 245
+                             C55 240, 50 230, 50 220
+                             L50 150
+                             Z
+                             
+                             M80 65
+                             C80 62, 83 60, 87 60
+                             L113 60
+                             C117 60, 120 62, 120 65
+                             L120 80
+                             C120 83, 117 85, 113 85
+                             L87 85
+                             C83 85, 80 83, 80 80
+                             Z
+                             
+                             M70 120
+                             C70 120, 75 118, 80 120
+                             L120 120
+                             C125 118, 130 120, 130 120
+                             
+                             M75 140
+                             L125 140
+                             
+                             M80 160
+                             L120 160
+                             
+                             M75 180
+                             L125 180" 
+                          fill="none" 
+                          stroke="rgba(255, 255, 255, 0.6)" 
+                          stroke-width="1.5" 
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-dasharray="800" 
+                          stroke-dashoffset="800"/>
+                </svg>
+            </div>
         </div>
     </div>
     
-    <script src="script.js"></script>
+    <script src="script.js?v=9"></script>
 </body>
 </html>

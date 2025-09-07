@@ -1,98 +1,190 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🎯 Страница загружена, запускаем резкую анимацию...');
+    console.log('🎯 Drake Style - Элегантная анимация загружается...');
     
     const mainText = document.getElementById('main-text');
     const subtitle = document.getElementById('subtitle');
     const comingSoon = document.getElementById('coming-soon');
+    const hoodieSilhouette = document.getElementById('hoodie-silhouette');
+    const animatedQuchi = document.getElementById('animated-quchi');
     
     // Проверяем элементы
-    if (!mainText || !subtitle || !comingSoon) {
+    if (!mainText || !subtitle || !comingSoon || !hoodieSilhouette || !animatedQuchi) {
         console.error('❌ Элементы не найдены!');
         return;
     }
     
-    console.log('✅ Все элементы найдены');
+    console.log('✅ Все элементы найдены - запускаем Drake Style');
     
-    // Функция резкой анимационной последовательности
-    function startSharpAnimation() {
-        console.log('⚡ Запуск резкой последовательности...');
+    // Функция красивой анимации букв Quchi
+    function animateQuchiLetters() {
+        console.log('✍️ Начинаем красивую анимацию букв Quchi...');
+        animatedQuchi.classList.add('show');
+        
+        const letters = animatedQuchi.querySelectorAll('.quchi-letter');
+        
+        // Красиво появляются буквы по одной
+        letters.forEach((letter, index) => {
+            setTimeout(() => {
+                letter.classList.add('draw');
+                console.log(`✨ Буква ${letter.textContent} красиво появляется...`);
+            }, index * 200); // Быстрее между буквами для плавности
+        });
+        
+        // Ждем чтобы все буквы появились и немного постояли
+        setTimeout(() => {
+            console.log('🔄 Красиво превращаем Quchi в силуэт худи...');
+            
+            // Красиво исчезают буквы с новой анимацией
+            letters.forEach((letter, index) => {
+                setTimeout(() => {
+                    letter.classList.add('fade-out');
+                    console.log(`💫 Буква ${letter.textContent} красиво исчезает...`);
+                }, index * 150);
+            });
+            
+            // После исчезновения букв появляется худи
+            setTimeout(() => {
+                animatedQuchi.classList.remove('show');
+                
+                setTimeout(() => {
+                    hoodieSilhouette.classList.add('show');
+                    console.log('👕 Силуэт худи красиво появляется из букв!');
+                    
+                    // Худи исчезает через 5 секунд
+                    setTimeout(() => {
+                        hoodieSilhouette.classList.remove('show');
+                        console.log('👕 Силуэт худи красиво исчезает...');
+                    }, 5000);
+                }, 300);
+            }, letters.length * 150 + 800);
+            
+        }, letters.length * 200 + 1500); // Ждем все буквы + пауза
+    }
+    
+    // Функция элегантной анимационной последовательности
+    function startDrakeAnimation() {
+        console.log('🎵 Запуск Drake Style анимации...');
         
         // Убеждаемся что все элементы скрыты в начале
         mainText.classList.remove('show');
         subtitle.classList.remove('show');
         comingSoon.classList.remove('show');
+        hoodieSilhouette.classList.remove('show');
+        animatedQuchi.classList.remove('show');
         
-        // ФАЗА 1: Резко показываем только "14SEPT" (1-3 секунды)
+        // Сбрасываем все буквы Quchi
+        const letters = animatedQuchi.querySelectorAll('.quchi-letter');
+        letters.forEach(letter => {
+            letter.classList.remove('draw');
+            letter.classList.remove('fade-out');
+        });
+        
+        // Сбрасываем анимацию худи
+        const hoodiePath = document.getElementById('hoodie-path');
+        if (hoodiePath) {
+            hoodiePath.style.animation = 'none';
+            hoodiePath.offsetHeight; // Принудительный reflow
+            hoodiePath.style.animation = null;
+        }
+        
+        // ФАЗА 1: Элегантно показываем "14SEPT" (1-4 секунды)
         setTimeout(() => {
-            console.log('⚡ Фаза 1: РЕЗКО показ 14SEPT');
+            console.log('✨ Фаза 1: Элегантное появление 14SEPT');
             mainText.classList.add('show');
         }, 1000);
         
-        // ФАЗА 2: Резко скрываем "14SEPT" и резко показываем подзаголовок (3-5 секунд)
+        // ФАЗА 2: Плавно скрываем "14SEPT" и показываем подзаголовок (4-7 секунд)
         setTimeout(() => {
-            console.log('⚡ Переход к фазе 2: РЕЗКО скрываем 14SEPT');
+            console.log('🌊 Переход к фазе 2: плавно скрываем 14SEPT');
             mainText.classList.remove('show');
             
-            // Минимальная задержка для резкости
+            // Элегантная задержка для плавности
             setTimeout(() => {
-                console.log('⚡ Фаза 2: РЕЗКО показ подзаголовка');
+                console.log('💫 Фаза 2: элегантное появление подзаголовка');
                 subtitle.classList.add('show');
-            }, 100);
-        }, 3000);
+            }, 800); // Более длинная задержка для элегантности
+        }, 4000);
         
-        // ФАЗА 3: Резко показываем все вместе + Coming Soon (5+ секунд)
+        // ФАЗА 3: Финальная элегантная композиция (7+ секунд)
         setTimeout(() => {
-            console.log('⚡ Фаза 3: РЕЗКО показ всего вместе');
+            console.log('🎭 Фаза 3: Финальная Drake композиция');
             
-            // Добавляем класс для финальной фазы - красивое расположение друг под другом
+            // Добавляем класс для финальной фазы - элегантное расположение
             const content = document.querySelector('.content');
             content.classList.add('final-phase');
             
-            // Показываем 14SEPT обратно резко
-            mainText.classList.add('show');
-            // Подзаголовок уже показан
-            // Добавляем Coming Soon резко
+            // Плавно скрываем подзаголовок для перехода
+            subtitle.classList.remove('show');
+            
+            // Элегантное появление финальной композиции
             setTimeout(() => {
-                comingSoon.classList.add('show');
-                console.log('🎊 Финальная фаза: все элементы показаны РЕЗКО друг под другом');
-            }, 100);
-        }, 5000);
+                mainText.classList.add('show');
+                subtitle.classList.add('show');
+                
+                setTimeout(() => {
+                    comingSoon.classList.add('show');
+                    console.log('🏆 Финальная Drake композиция: все элементы показаны');
+                    
+                    // Запускаем анимацию букв Quchi через 2 секунды
+                    setTimeout(() => {
+                        animateQuchiLetters();
+                    }, 2000);
+                }, 400);
+            }, 600);
+        }, 7000);
     }
     
-    // Функция перезапуска
-    function restart() {
-        console.log('🔄 Перезапуск резкой анимации...');
+    // Функция элегантного перезапуска
+    function restartDrakeStyle() {
+        console.log('🔄 Элегантный перезапуск Drake Style...');
         
-        // Резко скрываем все элементы
+        // Плавно скрываем все элементы
         mainText.classList.remove('show');
         subtitle.classList.remove('show');
         comingSoon.classList.remove('show');
+        hoodieSilhouette.classList.remove('show');
+        animatedQuchi.classList.remove('show');
+        
+        // Сбрасываем все буквы Quchi
+        const letters = animatedQuchi.querySelectorAll('.quchi-letter');
+        letters.forEach(letter => {
+            letter.classList.remove('draw');
+            letter.classList.remove('fade-out');
+        });
+        
+        // Сбрасываем анимацию худи
+        const hoodiePath = document.getElementById('hoodie-path');
+        if (hoodiePath) {
+            hoodiePath.style.animation = 'none';
+            hoodiePath.offsetHeight; // Принудительный reflow
+            hoodiePath.style.animation = null;
+        }
         
         // Убираем класс финальной фазы
         const content = document.querySelector('.content');
         content.classList.remove('final-phase');
         
-        // Перезапускаем быстро
-        setTimeout(startSharpAnimation, 200);
+        // Элегантный перезапуск
+        setTimeout(startDrakeAnimation, 800);
     }
     
-    // Запускаем анимацию через полсекунды после загрузки
-    setTimeout(startSharpAnimation, 500);
+    // Запускаем анимацию через секунду после загрузки
+    setTimeout(startDrakeAnimation, 1000);
     
-    // Перезапуск по клику
+    // Элегантный перезапуск по клику
     document.addEventListener('click', function(e) {
         if (!e.target.closest('.loading-dots')) {
-            restart();
+            restartDrakeStyle();
         }
     });
     
-    // Перезапуск по пробелу
+    // Элегантный перезапуск по пробелу
     document.addEventListener('keydown', function(e) {
         if (e.code === 'Space') {
             e.preventDefault();
-            restart();
+            restartDrakeStyle();
         }
     });
     
-    console.log('🎮 Интерактивность настроена: клик или пробел для перезапуска');
+    console.log('🎮 Drake Style интерактивность: клик или пробел для элегантного перезапуска');
 });
