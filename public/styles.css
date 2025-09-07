@@ -1,4 +1,4 @@
-/* Чистый минималистичный дизайн - Drake Style */
+/* Крутой минимализм - без перебора */
 
 * {
     margin: 0;
@@ -13,11 +13,7 @@ html, body {
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: 
-        radial-gradient(circle at 25% 25%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 75% 75%, rgba(255, 140, 66, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(255, 107, 53, 0.05) 0%, transparent 70%),
-        linear-gradient(135deg, #0a0a0a 0%, #1c1c1c 40%, #2a1810 60%, #0f0f0f 100%);
+    background: #0a0a0a;
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -27,45 +23,6 @@ body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    position: relative;
-    overflow: hidden;
-}
-
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.15), transparent),
-        radial-gradient(2px 2px at 40px 70px, rgba(255, 107, 53, 0.1), transparent),
-        radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.08), transparent);
-    background-repeat: repeat;
-    background-size: 120px 120px;
-    animation: sparkle 25s ease-in-out infinite;
-    z-index: -1;
-    opacity: 0.6;
-}
-
-@keyframes sparkle {
-    0%, 100% { 
-        transform: translate(0, 0) rotate(0deg); 
-        opacity: 0.6;
-    }
-    25% { 
-        transform: translate(15px, -15px) rotate(90deg); 
-        opacity: 0.8;
-    }
-    50% { 
-        transform: translate(-10px, 10px) rotate(180deg); 
-        opacity: 0.4;
-    }
-    75% { 
-        transform: translate(-15px, -10px) rotate(270deg); 
-        opacity: 0.7;
-    }
 }
 
 .container {
@@ -78,7 +35,7 @@ body::before {
     padding: 2rem 1rem;
 }
 
-/* Фоновый паттерн Quchi - простой */
+/* Фоновый паттерн Quchi - минимально */
 .quchi-pattern {
     position: fixed;
     top: 0;
@@ -86,7 +43,7 @@ body::before {
     width: 100%;
     height: 100%;
     z-index: -1;
-    opacity: 0.08;
+    opacity: 0.03;
     overflow: hidden;
     pointer-events: none;
 }
@@ -94,12 +51,12 @@ body::before {
 .quchi-item {
     position: absolute;
     font-family: 'Inter', sans-serif;
-    font-size: clamp(6rem, 12vw, 16rem);
-    font-weight: 200;
-    color: rgba(255, 255, 255, 0.1);
+    font-size: clamp(8rem, 15vw, 20rem);
+    font-weight: 100;
+    color: rgba(255, 255, 255, 0.05);
     user-select: none;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.2em;
 }
 
 .quchi-item:nth-child(1) { top: 10%; left: 5%; }
@@ -108,47 +65,21 @@ body::before {
 .quchi-item:nth-child(4) { top: 70%; right: 5%; }
 .quchi-item:nth-child(5) { top: 30%; left: 50%; }
 .quchi-item:nth-child(6) { top: 80%; left: 30%; }
-.quchi-item:nth-child(7) { top: 5%; left: 70%; }
-.quchi-item:nth-child(8) { top: 60%; right: 30%; }
-.quchi-item:nth-child(9) { top: 40%; left: 20%; }
-.quchi-item:nth-child(10) { top: 85%; right: 15%; }
-.quchi-item:nth-child(11) { top: 15%; left: 40%; }
-.quchi-item:nth-child(12) { top: 75%; left: 60%; }
 
-/* Главный контейнер контента */
+/* Главный контейнер контента - минимально */
 .content {
     text-align: center;
     z-index: 10;
     position: relative;
     max-width: 90vw;
     width: 100%;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 107, 53, 0.2);
-    backdrop-filter: blur(20px);
-    box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.4),
-        0 0 80px rgba(255, 107, 53, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.content:hover {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 107, 53, 0.4);
-    box-shadow: 
-        0 25px 50px rgba(0, 0, 0, 0.5),
-        0 0 120px rgba(255, 107, 53, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
-}
-
-/* Основные тексты */
+/* Основные тексты - стильно и просто */
 .main-text {
-    font-size: clamp(2.5rem, 8vw, 6rem);
-    font-weight: 700;
-    letter-spacing: 0.02em;
+    font-size: clamp(3rem, 12vw, 8rem);
+    font-weight: 300;
+    letter-spacing: 0.1em;
     margin-bottom: 0;
     opacity: 0;
     visibility: hidden;
@@ -156,24 +87,9 @@ body::before {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-    background: linear-gradient(135deg, 
-        #ffffff 0%, 
-        #ff6b35 30%, 
-        #ff8c42 70%, 
-        #ffffff 100%);
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: textShine 4s ease-in-out infinite;
+    transition: all 1s ease;
+    color: #ffffff;
     line-height: 0.9;
-    filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.3));
-}
-
-@keyframes textShine {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
 }
 
 .main-text.show {
@@ -182,9 +98,9 @@ body::before {
 }
 
 .subtitle {
-    font-size: clamp(1rem, 3vw, 2rem);
-    font-weight: 300;
-    letter-spacing: 0.08em;
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
+    font-weight: 200;
+    letter-spacing: 0.3em;
     margin-bottom: 0;
     opacity: 0;
     visibility: hidden;
@@ -192,9 +108,10 @@ body::before {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-    color: rgba(255, 255, 255, 0.8);
+    transition: all 1s ease;
+    color: rgba(255, 255, 255, 0.7);
     line-height: 1.2;
+    text-transform: uppercase;
 }
 
 .subtitle.show {
@@ -210,7 +127,7 @@ body::before {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 1s ease;
 }
 
 .coming-soon.show {
@@ -219,12 +136,13 @@ body::before {
 }
 
 .coming-soon p {
-    font-size: clamp(1.2rem, 4vw, 2.2rem);
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    margin-bottom: 1rem;
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-weight: 200;
+    letter-spacing: 0.2em;
+    margin-bottom: 2rem;
     color: #ffffff;
     line-height: 1.1;
+    text-transform: uppercase;
 }
 
 /* Простые точки загрузки */
@@ -232,24 +150,23 @@ body::before {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
-    margin-top: 0.8rem;
+    gap: 1rem;
 }
 
 .loading-dots span {
-    width: 6px;
-    height: 6px;
-    background: rgba(255, 255, 255, 0.6);
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 50%;
     animation: dotPulse 1.5s ease-in-out infinite;
 }
 
 .loading-dots span:nth-child(2) {
-    animation-delay: 0.2s;
+    animation-delay: 0.3s;
 }
 
 .loading-dots span:nth-child(3) {
-    animation-delay: 0.4s;
+    animation-delay: 0.6s;
 }
 
 @keyframes dotPulse {
@@ -259,17 +176,17 @@ body::before {
     }
     50% {
         opacity: 1;
-        transform: scale(1.2);
+        transform: scale(1.5);
     }
 }
 
-/* Финальная фаза */
+/* Финальная фаза - минимально */
 .content.final-phase {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1.2rem;
+    gap: 3rem;
     height: auto;
 }
 
@@ -279,7 +196,7 @@ body::before {
     left: auto;
     transform: none;
     margin: 0;
-    font-size: clamp(2.5rem, 8vw, 6rem);
+    font-size: clamp(3rem, 12vw, 8rem);
     opacity: 1;
     visibility: visible;
     width: auto;
@@ -291,8 +208,8 @@ body::before {
     left: auto;
     transform: none;
     margin: 0;
-    font-size: clamp(1rem, 3vw, 2rem);
-    opacity: 0.8;
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
+    opacity: 0.7;
     visibility: visible;
     width: auto;
 }
@@ -307,19 +224,19 @@ body::before {
     visibility: visible;
 }
 
-/* Анимированный Quchi текст */
+/* Анимированный Quchi текст - минимально */
 .animated-quchi {
     position: relative;
-    margin-top: 2rem;
-    font-size: clamp(1.5rem, 4vw, 3rem);
-    font-weight: 400;
+    margin-top: 4rem;
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: 100;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.5em;
     opacity: 0;
     visibility: hidden;
     z-index: 15;
     display: flex;
-    gap: 0.15em;
+    gap: 0.3em;
     justify-content: center;
 }
 
@@ -329,120 +246,56 @@ body::before {
 }
 
 .quchi-letter {
-    color: transparent;
-    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.3);
     opacity: 0;
-    transform: scale(0.5) translateY(30px) rotateX(90deg);
-    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
-    filter: blur(5px);
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-    position: relative;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
 }
 
 .quchi-letter.draw {
     opacity: 1;
-    transform: scale(1) translateY(0) rotateX(0deg);
-    color: transparent;
-    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.8);
-    filter: blur(0px);
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    transform: translateY(0);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .quchi-letter.fade-out {
     opacity: 0;
-    transform: scale(0.2) translateY(-50px) rotateX(-90deg);
-    color: transparent;
-    filter: blur(8px);
-    transition: all 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform: translateY(-20px);
+    transition: all 0.8s ease;
 }
 
-/* Крутой силуэт худи */
+/* Крутой минимальный силуэт худи */
 .hoodie-silhouette {
     position: relative;
-    margin: 1.5rem auto 0;
-    width: 200px;
-    height: 250px;
+    margin: 3rem auto 0;
+    width: 120px;
+    height: 160px;
     opacity: 0;
     z-index: 5;
-    transition: all 2s cubic-bezier(0.23, 1, 0.32, 1);
-    transform: scale(0.2) rotateY(180deg) rotateX(45deg);
-    filter: blur(15px);
+    transition: all 1s ease;
+    transform: scale(0.8);
 }
 
 .hoodie-silhouette.show {
     opacity: 1;
-    transform: scale(1) rotateY(0deg) rotateX(0deg);
-    filter: blur(0px);
+    transform: scale(1);
 }
 
 #hoodie-path {
-    stroke-dasharray: 1400;
-    stroke-dashoffset: 1400;
-    stroke: rgba(255, 107, 53, 0.3);
-    stroke-width: 2.5;
-    filter: drop-shadow(0 0 15px rgba(255, 107, 53, 0.3));
+    stroke-dasharray: 800;
+    stroke-dashoffset: 800;
+    stroke: rgba(255, 255, 255, 0.6);
+    stroke-width: 1;
 }
 
 @keyframes drawHoodie {
-    0% {
-        stroke-dashoffset: 1400;
-        stroke: rgba(255, 107, 53, 0.2);
-        stroke-width: 2;
-        filter: drop-shadow(0 0 10px rgba(255, 107, 53, 0.2));
-    }
-    25% {
-        stroke: rgba(255, 140, 66, 0.6);
-        stroke-width: 3;
-        filter: drop-shadow(0 0 25px rgba(255, 140, 66, 0.4));
-    }
-    50% {
-        stroke: rgba(255, 107, 53, 0.9);
-        stroke-width: 3.5;
-        filter: drop-shadow(0 0 35px rgba(255, 107, 53, 0.6));
-    }
-    75% {
-        stroke: rgba(255, 140, 66, 0.8);
-        stroke-width: 3;
-        filter: drop-shadow(0 0 30px rgba(255, 140, 66, 0.5));
-    }
-    100% {
+    to {
         stroke-dashoffset: 0;
-        stroke: rgba(255, 107, 53, 0.7);
-        stroke-width: 2.5;
-        filter: drop-shadow(0 0 20px rgba(255, 107, 53, 0.4));
     }
 }
 
 .hoodie-silhouette.show #hoodie-path {
-    animation: drawHoodie 6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-}
-
-/* Дополнительные детали худи */
-.hoodie-silhouette svg circle {
-    stroke-dasharray: 20;
-    stroke-dashoffset: 20;
-    animation: drawDetails 2s ease-out 4s forwards;
-}
-
-.hoodie-silhouette svg path:last-child {
-    stroke-dasharray: 100;
-    stroke-dashoffset: 100;
-    animation: drawPocket 1.5s ease-out 5s forwards;
-}
-
-@keyframes drawDetails {
-    to {
-        stroke-dashoffset: 0;
-        stroke: rgba(255, 107, 53, 0.6);
-        filter: drop-shadow(0 0 10px rgba(255, 107, 53, 0.3));
-    }
-}
-
-@keyframes drawPocket {
-    to {
-        stroke-dashoffset: 0;
-        stroke: rgba(255, 107, 53, 0.5);
-    }
+    animation: drawHoodie 3s ease forwards;
 }
 
 /* Адаптивность */
@@ -452,66 +305,66 @@ body::before {
     }
     
     .main-text {
-        font-size: clamp(2rem, 10vw, 5rem) !important;
+        font-size: clamp(2.5rem, 15vw, 6rem) !important;
     }
     
     .subtitle {
-        font-size: clamp(0.9rem, 4vw, 1.8rem) !important;
-    }
-    
-    .coming-soon p {
         font-size: clamp(1rem, 5vw, 2rem) !important;
     }
     
+    .coming-soon p {
+        font-size: clamp(1.2rem, 6vw, 2.5rem) !important;
+    }
+    
     .animated-quchi {
-        font-size: clamp(1.2rem, 6vw, 2.5rem);
-        gap: 0.1em;
+        font-size: clamp(1.5rem, 8vw, 3rem);
+        gap: 0.2em;
+        margin-top: 3rem;
     }
     
     .hoodie-silhouette {
-        width: 140px;
-        height: 190px;
-        margin: 1rem auto 0;
+        width: 100px;
+        height: 140px;
+        margin: 2rem auto 0;
     }
     
     .content.final-phase {
-        gap: 1rem;
+        gap: 2rem;
     }
 }
 
 @media (max-width: 480px) {
     .main-text {
-        font-size: clamp(1.8rem, 12vw, 4rem) !important;
+        font-size: clamp(2rem, 18vw, 5rem) !important;
     }
     
     .subtitle {
-        font-size: clamp(0.8rem, 5vw, 1.5rem) !important;
-    }
-    
-    .coming-soon p {
         font-size: clamp(0.9rem, 6vw, 1.8rem) !important;
     }
     
+    .coming-soon p {
+        font-size: clamp(1rem, 7vw, 2rem) !important;
+    }
+    
     .animated-quchi {
-        font-size: clamp(1rem, 8vw, 2rem);
-        margin-top: 1.5rem;
+        font-size: clamp(1.2rem, 10vw, 2.5rem);
+        margin-top: 2rem;
     }
     
     .hoodie-silhouette {
-        width: 120px;
-        height: 170px;
-        margin: 1rem auto 0;
+        width: 80px;
+        height: 120px;
     }
     
     .content.final-phase {
-        gap: 0.8rem;
+        gap: 1.5rem;
     }
 }
 
 /* Для больших экранов */
 @media (min-width: 1920px) {
     .main-text {
-        font-size: clamp(5rem, 8vw, 10rem) !important;
+        font-size: clamp(6rem, 10vw, 12rem) !important;
     }
     
     .subtitle {
