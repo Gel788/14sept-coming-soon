@@ -6,7 +6,7 @@
   "scripts": {
     "start": "python3 -m http.server 8000",
     "dev": "python3 -m http.server 8000",
-    "build": "mkdir -p public && cp index.html styles.css script.js public/",
+    "build": "mkdir -p public && cp index.html styles.css script.js '2025-09-08 17.10.44.jpg' public/",
     "deploy": "npm run build && echo 'Built files are in public/ directory'",
     "serve": "cd public && python3 -m http.server 8000"
   },
