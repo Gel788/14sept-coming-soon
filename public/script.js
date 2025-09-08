@@ -30,6 +30,11 @@ document.addEventListener('DOMContentLoaded', function() {
         heroPhoto.style.transform = `scale(${photoScale})`;
         heroPhoto.style.filter = `brightness(${photoBrightness}) contrast(1.1) blur(${photoBlur}px)`;
         
+        // Логируем когда фото достигает полного размытия
+        if (scrollProgress >= 0.25 && scrollProgress < 0.26) {
+            console.log(`📸 Фото достигло полного размытия: blur=${photoBlur.toFixed(1)}px при ${(scrollProgress * 100).toFixed(1)}% скролла`);
+        }
+        
         // ЭФФЕКТ 2: Смена текстов по скроллу
         
         // Убираем все тексты сначала
@@ -39,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Убираем финальную фазу если скроллим назад
         const content = document.querySelector('.content');
-        if (scrollProgress < 0.8) {
+        if (scrollProgress < 0.85) {
             content.classList.remove('final-phase');
             animatedQuchi.classList.remove('show');
             hoodiesilhouette.classList.remove('show');
@@ -52,26 +57,26 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         
-        // ФАЗА 1: "14SEPT" (10-30% скролла)
-        if (scrollProgress >= 0.1 && scrollProgress < 0.3) {
-            console.log('✨ Показываем 14SEPT');
+        // ФАЗА 1: "14SEPT" появляется только при полном размытии фото (25-45% скролла)
+        if (scrollProgress >= 0.25 && scrollProgress < 0.45) {
+            console.log('✨ Фото полностью размыто - показываем 14SEPT');
             mainText.classList.add('show');
         }
         
-        // ФАЗА 2: "In the Dark, Leave a Mark" (30-60% скролла)
-        else if (scrollProgress >= 0.3 && scrollProgress < 0.6) {
+        // ФАЗА 2: "In the Dark, Leave a Mark" (45-70% скролла)
+        else if (scrollProgress >= 0.45 && scrollProgress < 0.7) {
             console.log('🌊 Показываем подзаголовок');
             subtitle.classList.add('show');
         }
         
-        // ФАЗА 3: "Coming Soon" (60-80% скролла)
-        else if (scrollProgress >= 0.6 && scrollProgress < 0.8) {
+        // ФАЗА 3: "Coming Soon" (70-85% скролла)
+        else if (scrollProgress >= 0.7 && scrollProgress < 0.85) {
             console.log('🎭 Показываем Coming Soon');
             comingSoon.classList.add('show');
         }
         
-        // ФАЗА 4: Финальная композиция (80%+ скролла)
-        else if (scrollProgress >= 0.8) {
+        // ФАЗА 4: Финальная композиция (85%+ скролла)
+        else if (scrollProgress >= 0.85) {
             console.log('🏆 Финальная композиция');
             
             content.classList.add('final-phase');
