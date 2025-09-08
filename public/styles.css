@@ -46,18 +46,17 @@ body {
     position: relative;
     width: 100%;
     min-height: 500vh; /* Много места для скролла */
-    display: flex;
-    align-items: center;
-    justify-content: center;
     z-index: 2;
 }
 
 .content {
-    position: relative;
+    position: fixed; /* Фиксированное позиционирование для центрирования */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
     z-index: 10;
 }
 
@@ -91,18 +90,15 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-/* Основные тексты - последовательная смена */
+/* Основные тексты - по центру */
 .main-text {
     font-size: clamp(3rem, 12vw, 8rem);
     font-weight: 300;
     letter-spacing: 0.1em;
-    margin-bottom: 0;
+    margin: 0;
     opacity: 0;
     visibility: hidden;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.9);
+    transform: scale(0.9);
     transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     color: #ffffff;
     line-height: 0.9;
@@ -111,20 +107,17 @@ body {
 .main-text.show {
     opacity: 1;
     visibility: visible;
-    transform: translate(-50%, -50%) scale(1);
+    transform: scale(1);
 }
 
 .subtitle {
     font-size: clamp(1.2rem, 4vw, 2.5rem);
     font-weight: 200;
     letter-spacing: 0.3em;
-    margin-bottom: 0;
+    margin: 0;
     opacity: 0;
     visibility: hidden;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) translateY(20px);
+    transform: translateY(20px);
     transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     color: rgba(255, 255, 255, 0.7);
     line-height: 1.2;
@@ -134,24 +127,22 @@ body {
 .subtitle.show {
     opacity: 1;
     visibility: visible;
-    transform: translate(-50%, -50%) translateY(0);
+    transform: translateY(0);
 }
 
 /* Coming Soon */
 .coming-soon {
     opacity: 0;
     visibility: hidden;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.95);
+    transform: scale(0.95);
     transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    margin: 0;
 }
 
 .coming-soon.show {
     opacity: 1;
     visibility: visible;
-    transform: translate(-50%, -50%) scale(1);
+    transform: scale(1);
 }
 
 .coming-soon p {
@@ -164,28 +155,16 @@ body {
 
 /* Финальная фаза - все вместе */
 .content.final-phase .main-text {
-    position: relative;
-    transform: none;
-    top: auto;
-    left: auto;
     margin-bottom: 1rem;
     display: block;
 }
 
 .content.final-phase .subtitle {
-    position: relative;
-    transform: none;
-    top: auto;
-    left: auto;
     margin-bottom: 2rem;
     display: block;
 }
 
 .content.final-phase .coming-soon {
-    position: relative;
-    transform: none;
-    top: auto;
-    left: auto;
     display: block;
 }
 
