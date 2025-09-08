@@ -1,7 +1,7 @@
-// Последовательная смена текстов на одном экране - 14SEPT
+// Скролл-управление с увеличением фото и сменой текстов - 14SEPT
 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🎬 Последовательная анимация загружена!');
+    console.log('📜 Скролл-управление с фото и текстами загружено!');
     
     // Элементы
     const heroPhoto = document.getElementById('hero-photo');
@@ -11,63 +11,82 @@ document.addEventListener('DOMContentLoaded', function() {
     const animatedQuchi = document.getElementById('animated-quchi');
     const hoodiesilhouette = document.getElementById('hoodie-silhouette');
     
-    // Запуск последовательной анимации
-    function startSequence() {
-        console.log('🚀 Запускаем последовательную анимацию...');
+    let quchiAnimationStarted = false;
+    
+    // Скролл-эффекты
+    function handleScroll() {
+        const scrollY = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const maxScroll = document.body.scrollHeight - windowHeight;
+        const scrollProgress = scrollY / maxScroll;
         
-        // ФАЗА 1: Появляется "14SEPT" (1-3 секунды)
-        setTimeout(() => {
-            console.log('✨ Фаза 1: Появляется 14SEPT');
+        console.log(`📜 Скролл: ${scrollY}px, прогресс: ${(scrollProgress * 100).toFixed(1)}%`);
+        
+        // ЭФФЕКТ 1: Увеличение фото при скролле (всегда работает)
+        const photoScale = 1 + (scrollProgress * 4); // От 1 до 5x
+        const photoBlur = Math.min(scrollProgress * 15, 15); // До 15px размытия
+        const photoBrightness = Math.max(0.4 - scrollProgress * 0.3, 0.1); // Затемнение
+        
+        heroPhoto.style.transform = `scale(${photoScale})`;
+        heroPhoto.style.filter = `brightness(${photoBrightness}) contrast(1.1) blur(${photoBlur}px)`;
+        
+        // ЭФФЕКТ 2: Смена текстов по скроллу
+        
+        // Убираем все тексты сначала
+        mainText.classList.remove('show');
+        subtitle.classList.remove('show');
+        comingSoon.classList.remove('show');
+        
+        // Убираем финальную фазу если скроллим назад
+        const content = document.querySelector('.content');
+        if (scrollProgress < 0.8) {
+            content.classList.remove('final-phase');
+            animatedQuchi.classList.remove('show');
+            hoodiesilhouette.classList.remove('show');
+            quchiAnimationStarted = false;
+            
+            // Очищаем анимацию букв
+            const letters = document.querySelectorAll('.quchi-letter');
+            letters.forEach(letter => {
+                letter.classList.remove('draw', 'fade-out');
+            });
+        }
+        
+        // ФАЗА 1: "14SEPT" (10-30% скролла)
+        if (scrollProgress >= 0.1 && scrollProgress < 0.3) {
+            console.log('✨ Показываем 14SEPT');
             mainText.classList.add('show');
-        }, 1000);
+        }
         
-        // ФАЗА 2: Исчезает "14SEPT", появляется подзаголовок (3-6 секунд)
-        setTimeout(() => {
-            console.log('🌊 Фаза 2: 14SEPT исчезает');
-            mainText.classList.remove('show');
-            
-            setTimeout(() => {
-                console.log('✨ Фаза 2: Появляется подзаголовок');
-                subtitle.classList.add('show');
-            }, 500);
-        }, 3000);
+        // ФАЗА 2: "In the Dark, Leave a Mark" (30-60% скролла)
+        else if (scrollProgress >= 0.3 && scrollProgress < 0.6) {
+            console.log('🌊 Показываем подзаголовок');
+            subtitle.classList.add('show');
+        }
         
-        // ФАЗА 3: Исчезает подзаголовок, появляется "Coming Soon" (6-9 секунд)
-        setTimeout(() => {
-            console.log('🎭 Фаза 3: Подзаголовок исчезает');
-            subtitle.classList.remove('show');
-            
-            setTimeout(() => {
-                console.log('✨ Фаза 3: Появляется Coming Soon');
-                comingSoon.classList.add('show');
-            }, 500);
-        }, 6000);
+        // ФАЗА 3: "Coming Soon" (60-80% скролла)
+        else if (scrollProgress >= 0.6 && scrollProgress < 0.8) {
+            console.log('🎭 Показываем Coming Soon');
+            comingSoon.classList.add('show');
+        }
         
-        // ФАЗА 4: Финальная композиция - все вместе (9+ секунд)
-        setTimeout(() => {
-            console.log('🏆 Фаза 4: Финальная композиция');
+        // ФАЗА 4: Финальная композиция (80%+ скролла)
+        else if (scrollProgress >= 0.8) {
+            console.log('🏆 Финальная композиция');
             
-            // Добавляем класс для финальной фазы
-            const content = document.querySelector('.content');
             content.classList.add('final-phase');
+            mainText.classList.add('show');
+            subtitle.classList.add('show');
+            comingSoon.classList.add('show');
             
-            // Скрываем Coming Soon для перехода
-            comingSoon.classList.remove('show');
-            
-            // Показываем все элементы вместе
-            setTimeout(() => {
-                mainText.classList.add('show');
-                subtitle.classList.add('show');
-                comingSoon.classList.add('show');
-                
-                console.log('🎨 Все элементы показаны вместе');
-                
-                // Запускаем анимацию Quchi через 2 секунды
+            // Запускаем анимацию Quchi только один раз
+            if (!quchiAnimationStarted) {
+                quchiAnimationStarted = true;
                 setTimeout(() => {
                     animateQuchiLetters();
-                }, 2000);
-            }, 600);
-        }, 9000);
+                }, 1000);
+            }
+        }
     }
     
     // Современная анимация букв Quchi
@@ -102,38 +121,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 animatedQuchi.classList.remove('show');
                 hoodiesilhouette.classList.add('show');
                 console.log('👕 Силуэт худи элегантно появляется!');
-                
-                // Автоматический рестарт через 5 секунд
-                setTimeout(() => {
-                    console.log('🔄 Автоматический рестарт анимации...');
-                    restartAnimation();
-                }, 5000);
             }, 1000);
         }, letters.length * 200 + 2000);
     }
     
-    // Рестарт анимации
+    // Рестарт анимации - прокрутка в начало
     function restartAnimation() {
-        console.log('🔄 Перезапускаем анимацию...');
-        
-        // Очищаем все классы
-        const content = document.querySelector('.content');
-        content.classList.remove('final-phase');
-        
-        [mainText, subtitle, comingSoon, animatedQuchi, hoodiesilhouette].forEach(el => {
-            if (el) el.classList.remove('show');
-        });
-        
-        const letters = document.querySelectorAll('.quchi-letter');
-        letters.forEach(letter => {
-            letter.classList.remove('draw', 'fade-out');
-        });
-        
-        // Запускаем заново через секунду
-        setTimeout(() => {
-            startSequence();
-        }, 1000);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        console.log('🔄 Прокрутка в начало!');
     }
+    
+    // Обработка скролла
+    window.addEventListener('scroll', handleScroll);
     
     // Обработка клика и пробела для рестарта
     document.addEventListener('click', restartAnimation);
@@ -144,8 +143,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Запускаем первую анимацию
-    startSequence();
+    // Первоначальная проверка скролла
+    handleScroll();
     
-    console.log('🎭 Последовательная анимация готова! Один экран, смена текстов по таймеру.');
+    console.log('📜 Скролл-управление готово! Скролли для смены текстов и увеличения фото!');
 });
