@@ -1,4 +1,4 @@
-/* Скролл-эффекты для 14SEPT */
+/* Один экран без скролла - 14SEPT */
 
 * {
     margin: 0;
@@ -6,40 +6,32 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html, body {
+    height: 100%;
+    overflow: hidden; /* Убираем скролл */
 }
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     background: #000000;
     color: #ffffff;
-    overflow-x: hidden;
     position: relative;
-}
-
-/* СЕКЦИЯ 1: Фото */
-.photo-section {
-    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    overflow: hidden;
+}
+
+/* Фото фон */
+.photo-background {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1;
-}
-
-.photo-container {
-    width: 100%;
     height: 100%;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
 }
 
 .hero-photo {
@@ -47,29 +39,19 @@ body {
     height: 400px;
     object-fit: cover;
     border-radius: 20px;
-    filter: brightness(0.8) contrast(1.1);
-    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    transform: scale(1);
+    filter: brightness(0.4) contrast(1.1) blur(3px);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-}
-
-/* СЕКЦИЯ 2: Тексты */
-.text-section {
-    min-height: 300vh;
-    position: relative;
-    background: #000000;
-    z-index: 2;
-    margin-top: 100vh;
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .container {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
+    z-index: 2;
 }
 
 .content {
@@ -111,7 +93,7 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-/* Основные тексты - эффективная анимация */
+/* Основные тексты - последовательная смена */
 .main-text {
     font-size: clamp(3rem, 12vw, 8rem);
     font-weight: 300;
@@ -157,7 +139,7 @@ body {
     transform: translate(-50%, -50%) translateY(0);
 }
 
-/* Coming Soon - эффективная анимация */
+/* Coming Soon */
 .coming-soon {
     opacity: 0;
     visibility: hidden;
@@ -182,7 +164,7 @@ body {
     color: rgba(255, 255, 255, 0.9);
 }
 
-/* Финальная фаза - элегантное расположение */
+/* Финальная фаза - все вместе */
 .content.final-phase .main-text {
     position: relative;
     transform: none;
